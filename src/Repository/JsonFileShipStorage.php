@@ -46,19 +46,10 @@ class JsonFileShipStorage implements ShipStorage
     {
         $ships = $this->fetchAllShipsData();
 
-        foreach ($ships as $ship) {
-            if ((int) $ship['id'] === $id) {
-                $constructedShip =  new Ship(
-                    $ship['id'],
-                    $ship['name'],
-                );
+        foreach ($ships->getShips() as $ship) {
 
-                $constructedShip->setWeaponPower((int) $ship['weapon_power']);
-                $constructedShip->setJediFactor((int) $ship['jedi_factor']);
-                $constructedShip->setStrength((int) $ship['strength']);
-                $constructedShip->setTeam((string) $ship['team']);
-
-                return $constructedShip;
+            if ($ship->getId() === $id) {
+                return $ship;
             }
         }
 

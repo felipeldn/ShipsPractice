@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace App\Service;
 
-use App\Model\BattleDecider;
 use App\Model\Fleet;
 
 class Battle
 {
-    private BattleDecider $battleOutcome;
+    private BattleDecider $battleDecider;
 
-    public function __construct(BattleDecider $battleOutcome)
+    public function __construct(BattleDecider $battleDecider)
     {
-        $this->battleOutcome = $battleOutcome;
+        $this->battleDecider = $battleDecider;
     }
 
     public function fight(Fleet $fleet1, Fleet $fleet2): Outcome
@@ -33,6 +32,7 @@ class Battle
             $fleet1Health = $fleet1->getFleetHealth();
             $fleet2Health = $fleet2->getFleetHealth();
         }
-        return $this->battleOutcome->outcome($fleet1, $fleet2);
+
+        return $this->battleDecider->outcome($fleet1, $fleet2);
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Model;
+namespace App\Service;
 
-use App\Repository\Outcome;
+use App\Model\Fleet;
 
 class BattleDecider
 {

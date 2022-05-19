@@ -22,7 +22,7 @@ class BattleType extends AbstractType
 
         $ships1 = [];
         foreach ($ships as $ship) {
-            $ships1[$ship->getName()] = $ship->getName();
+            $ships1[$ship->getName()] = $ship->getId();
         }
 
         $builder
@@ -36,7 +36,7 @@ class BattleType extends AbstractType
                     'label' => 'Ship: ',
                 ],
             )
-            ->add('Quantity', TextType::class);
+            ->add('ship1Quantity', TextType::class);
 
         $builder
             ->add(
@@ -49,7 +49,7 @@ class BattleType extends AbstractType
                     'label' => 'Ship: '
                 ],
             )
-            ->add('Quantity:', TextType::class)
+            ->add('ship2Quantity', TextType::class)
 
             ->add('Engage', SubmitType::class, ['label' => 'Engage!']);
     }

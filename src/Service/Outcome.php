@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace App\Service;
 
+use App\Model\AbstractShip;
 use App\Model\Fleet;
-use App\Model\Ship;
 
 class Outcome
 {
@@ -20,12 +20,12 @@ class Outcome
         $this->loser = $loser;
     }
 
-    public function getWinner(): Ship
+    public function getWinner(): ?AbstractShip
     {
         return $this->winner->getShip();
     }
 
-    public function getLoser(): Ship
+    public function getLoser(): ?AbstractShip
     {
         return $this->loser->getShip();
     }

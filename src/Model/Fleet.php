@@ -6,7 +6,7 @@ namespace App\Model;
 
 class Fleet
 {
-    private Ship $ship;
+    private AbstractShip $ship;
 
     private int $numberOfShips;
 
@@ -22,7 +22,7 @@ class Fleet
         $this->jediForceWasUsed = false;
     }
 
-    public function getShip(): Ship
+    public function getShip(): AbstractShip
     {
         return $this->ship;
     }
