@@ -20,5 +20,19 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: [ 'controller.service_arguments' ]
+    App\Model\Fleet:
+        arguments:
+            $numberOfShips: 'numberOfShips'
+    App\Model\Ship:
+        arguments:
+            $id: 'id'
+            $name: 'name'
+    App\Repository\JsonFileShipStorage:
+        arguments:
+            $fileName: '../data/ships.json'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
